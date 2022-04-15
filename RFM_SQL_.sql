@@ -12,9 +12,9 @@ INSERT INTO RFM (Customer)
 SELECT DISTINCT [Cardholder_Name] FROM Transactions_Data
 
 /*
-Customer	        LastTransactionDate	  Recency   Frequency	Monetary    Recency_Scale	Frequency_Scale     Monetary_Scale
+Customer	        LastTransactionDate	  Recency   	Frequency	   Monetary    Recency_Scale    Frequency_Scale     	Monetary_Scale
 DONNA MARIE HEPP	    NULL	              NULL	    NULL	    NULL	    NULL	        NULL	        NULL
-STAYCEE DAINS	        NULL	              NULL	    NULL	    NULL	    NULL	        NULL	        NULL
+STAYCEE DAINS	            NULL	              NULL	    NULL	    NULL	    NULL	        NULL	        NULL
 JEANETTE MONDALA	    NULL	              NULL	    NULL	    NULL	    NULL	        NULL	        NULL
 ...
 (1015 Customers)
@@ -26,9 +26,9 @@ FROM Transactions_Data WHERE [Cardholder_Name]=RFM.Customer)
 
 /*
 
-Customer	          LastTransactionDate	  Recency   Frequency	Monetary    Recency_Scale	Frequency_Scale     Monetary_Scale
-DONNA MARIE HEPP	   2016-12-19 00:00:00.000	NULL	    NULL	    NULL    	NULL	        NULL	        NULL
-STAYCEE DAINS	       2016-12-30 00:00:00.000	NULL	    NULL	    NULL	    NULL	        NULL	        NULL
+Customer	          LastTransactionDate	  	Recency   Frequency	Monetary    Recency_Scale	Frequency_Scale     Monetary_Scale
+DONNA MARIE HEPP	   2016-12-19 00:00:00.000	NULL	    NULL	    NULL    	    NULL	        NULL	        NULL
+STAYCEE DAINS	      	 2016-12-30 00:00:00.000	NULL	    NULL	    NULL	    NULL	        NULL	        NULL
 JEANETTE MONDALA	    2016-12-15 00:00:00.000	NULL	    NULL	    NULL	    NULL	        NULL	        NULL
 ...
 */
@@ -38,10 +38,10 @@ UPDATE RFM SET Recency = DATEDIFF (DAY, LastTransactionDate, '20170102')
 
 /*
 
-Customer	        LastTransactionDate	        Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale	Monetary_Scale
-DONNA MARIE HEPP	2016-12-19 00:00:00.000	    14	        NULL	    NULL	    NULL	        NULL	        NULL
-STAYCEE DAINS	    2016-12-30 00:00:00.000	    3	        NULL	    NULL	    NULL	        NULL	        NULL
-JEANETTE MONDALA	2016-12-15 00:00:00.000	    18	        NULL	    NULL	    NULL	        NULL	        NULL
+Customer	        LastTransactionDate	    Recency.   Frequency	Monetary	Recency_Scale	Frequency_Scale	    Monetary_Scale
+DONNA MARIE HEPP	2016-12-19 00:00:00.000	    14	        NULL	    	NULL	   	NULL	        	NULL	        NULL
+STAYCEE DAINS	        2016-12-30 00:00:00.000	    3	        NULL	    	NULL	    	NULL	        	NULL	        NULL
+JEANETTE MONDALA	2016-12-15 00:00:00.000	    18	        NULL	    	NULL	    	NULL	        	NULL	        NULL
 ...
 */
 
@@ -51,9 +51,9 @@ FROM Transactions_Data WHERE Cardholder_Name=RFM.Customer)
 
 /*
 
-Customer	        LastTransactionDate	        Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale	Monetary_Scale
+Customer	        LastTransactionDate	        Recency	    Frequency	  Monetary	Recency_Scale	Frequency_Scale	Monetary_Scale
 DONNA MARIE HEPP	2016-12-19 00:00:00.000	       14	     108	     NULL	        NULL	        NULL	     NULL
-STAYCEE DAINS	    2016-12-30 00:00:00.000	       3	     111	     NULL	        NULL	        NULL	     NULL
+STAYCEE DAINS	    	2016-12-30 00:00:00.000	       3	     111	     NULL	        NULL	        NULL	     NULL
 JEANETTE MONDALA	2016-12-15 00:00:00.000	       18	      19	     NULL	        NULL	        NULL	     NULL
 ...
 */
@@ -64,9 +64,9 @@ FROM Transactions_Data WHERE Cardholder_Name=RFM.Customer)
 
 /*
 
-Customer	        LastTransactionDate	            Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale	 Monetary_Scale
-DONNA MARIE HEPP	    2016-12-19 00:00:00.000	        14	        108	       23065	NULL	        NULL	         NULL
-STAYCEE DAINS	        2016-12-30 00:00:00.000	        3	        111	       129016	NULL	        NULL	         NULL
+Customer	           LastTransactionDate	            Recency	    Frequency	    Monetary	 Recency_Scale	 Frequency_Scale	 Monetary_Scale
+DONNA MARIE HEPP	    2016-12-19 00:00:00.000	        14	        108	       23065	    NULL	        NULL	         NULL
+STAYCEE DAINS	            2016-12-30 00:00:00.000	        3	        111	       129016	    NULL	        NULL	         NULL
 JEANETTE MONDALA	    2016-12-15 00:00:00.000	        18	        19	       6722	    NULL	        NULL	         NULL
 ...
 */
@@ -87,7 +87,7 @@ FROM RFM
 
 Customer	        LastTransactionDate	            Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale	Monetary_Scale
 DONNA MARIE HEPP	    2016-12-19 00:00:00.000	        14	    108	        23065	        4	            NULL	        NULL
-STAYCEE DAINS	        2016-12-30 00:00:00.000	        3	    111	        129016	        5	            NULL	        NULL
+STAYCEE DAINS	            2016-12-30 00:00:00.000	        3	    111	        129016	        5	            NULL	        NULL
 JEANETTE MONDALA	    2016-12-15 00:00:00.000	        18	    19	        6722	        3	            NULL	        NULL
 ...
 */
@@ -106,10 +106,10 @@ FROM RFM
 
 /*
 
-Customer	        LastTransactionDate	            Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale
-DONNA MARIE HEPP	    2016-12-19 00:00:00.000	    14	        108	        23065	        4	            5
-STAYCEE DAINS	        2016-12-30 00:00:00.000	    3	        111	        129016      	5	            5
-JEANETTE MONDALA	    2016-12-15 00:00:00.000	    18	        19	        6722	        3	            3
+Customer	        LastTransactionDate	            Recency    Frequency	Monetary	Recency_Scale	Frequency_Scale
+DONNA MARIE HEPP	    2016-12-19 00:00:00.000	    14	         108	        23065	        4	            5
+STAYCEE DAINS	            2016-12-30 00:00:00.000	    3	         111	        129016      	5	            5
+JEANETTE MONDALA	    2016-12-15 00:00:00.000	    18	         19	        6722	        3	            3
 ...
 */
 
@@ -129,7 +129,7 @@ FROM RFM
 
 Customer	        LastTransactionDate	        Recency	    Frequency	Monetary	Recency_Scale	Frequency_Scale	Monetary_Scale
 DONNA MARIE HEPP	2016-12-19 00:00:00.000	       14	    108	        23065	        4	            5	            5
-STAYCEE DAINS	    2016-12-30 00:00:00.000	        3	    111	        129016	        5	            5	            5
+STAYCEE DAINS	        2016-12-30 00:00:00.000	        3	    111	        129016	        5	            5	            5
 JEANETTE MONDALA	2016-12-15 00:00:00.000	       18	    19	        6722	        3	            3	            3
 ...
 */
@@ -158,9 +158,9 @@ WHERE Recency_Scale LIKE  '[5]%' AND Frequency_Scale LIKE '[4-5]%'
 
 /*
 
-Customer	        LastTransactionDate	        Recency	Frequency	Monetary	Recency_Scale	Frequency_Scale	    Monetary_Scale	    Segment
+Customer	        LastTransactionDate	   Receny  Frequency	Monetary	Recency_Scale	Frequency_Scale	    Monetary_Scale	   Segment
 DONNA MARIE HEPP	2016-12-19 00:00:00.000	    14	    108	        23065	        4	            5	              5	                Loyal_Customers
-STAYCEE DAINS	    2016-12-30 00:00:00.000	    3	    111	        129016	        5	            5	              5	                Champions
+STAYCEE DAINS	        2016-12-30 00:00:00.000	    3	    111	        129016	        5	            5	              5	                Champions
 JEANETTE MONDALA	2016-12-15 00:00:00.000	    18	    19	        6722	        3	            3	              3	                Need_Attention
 ...
 
@@ -174,16 +174,16 @@ ORDER BY COUNT_ DESC
 /*
 
     Segment	               Count_
-    Hibernating	            277
+    Hibernating	            	277
     Loyal_Customers	        209
-    Champions	            145
+    Champions	            	145
     At_Risk	                121
-    Potential_Loyalists	    115
+    Potential_Loyalists	    	115
     Need_Attention	        61
     About_to_Sleep	        56
-    Promising	            13
+    Promising	            	13
     New_Customers	        10
-    Cant_Loose	            8
+    Cant_Loose	            	8
 
 */
 
@@ -194,16 +194,16 @@ ORDER BY Recency_Avg
 
 /*
     Segment	            Recency_Avg
-    Champions	             5
+    Champions	             	 5
     New_Customers	         8
-    Potential_Loyalists	     9
-    Promising	            13
+    Potential_Loyalists	     	 9
+    Promising	            	13
     Loyal_Customers	        15
     Need_Attention	        20
     About_to_Sleep	        21
     At_Risk	                65
-    Cant_Loose	            75
-    Hibernating	            137
+    Cant_Loose	            	75
+    Hibernating	            	137
 */
 
 --12
@@ -214,16 +214,16 @@ ORDER BY Frequency_Avg DESC
 /*
 
     Segment	        Frequency_Avg
-    Champions	        81
-    Cant_Loose	        66
+    Champions	            81
+    Cant_Loose	            66
     Loyal_Customers	    58
     At_Risk	            29
     Need_Attention	    23
-    Potential_Loyalists	19
+    Potential_Loyalists	    19
     About_to_Sleep	    10
-    Hibernating	        7
+    Hibernating	            7
     New_Customers	    4
-    Promising	        4
+    Promising	            4
 */
 
 --13
@@ -234,15 +234,15 @@ ORDER BY Monetary_Avg DESC
 /*
 
     Segment	            Monetary_Avg
-    Champions	        40034
-    Cant_Loose	        35582
+    Champions	            40034
+    Cant_Loose	            35582
     Loyal_Customers	    23107
     At_Risk	            9901
-    Potential_Loyalists	7846
+    Potential_Loyalists	    7846
     Need_Attention	    7795
     About_to_Sleep	    4047
-    Hibernating	        2910
+    Hibernating	            2910
     New_Customers	    1189
-    Promising	        1186
+    Promising	            1186
 
 */
